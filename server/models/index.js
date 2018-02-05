@@ -1,11 +1,18 @@
 var Sequelize = require('sequelize');
 var pwd = process.env.PWD || require('../environment/env.js');
+var sequelize;
 
-var sequelize = new Sequelize('cafepi', 'root', pwd, {
-  host: process.env.JAWSDB_URL || '127.0.0.1',
-  port: 3306,
-  dialect: 'mysql'
-});
+if (process.env.JAWSDB_URL) {
+  sequelize = new Sequelize(process.env.JAWSDB_URL, {
+    dialect: 'mysql'
+  });
+} else {
+  sequelize = new Sequelize('cafepi', 'root', pwd, {
+    host: '127.0.0.1',
+    port: 3306,
+    dialect: 'mysql'
+  });
+}
 
 sequelize.authenticate(function(err) {
   if (err) {
@@ -18,3 +25,5 @@ sequelize.authenticate(function(err) {
 var CoffeeShop = sequelize.import('./coffeeShop');
 
 module.exports = CoffeeShop;
+
+
