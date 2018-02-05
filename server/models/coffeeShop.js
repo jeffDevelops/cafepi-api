@@ -2,10 +2,15 @@ const Sequelize = require('sequelize');
 
 module.exports = function (sequelize, Sequelize) {
   const CoffeeShop = sequelize.define('coffeeshop', {
+    id: {
+      type: Sequelize.INTEGER,
+      allowNull: false,
+      primaryKey: true,
+      autoIncrement: true
+    },
     name: {
       type: Sequelize.STRING,
       allowNull: false,
-      primaryKey: true
     },
     coordinates: {
       type: Sequelize.GEOMETRY('POINT'),
