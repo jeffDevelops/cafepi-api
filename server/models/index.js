@@ -2,7 +2,7 @@ var Sequelize = require('sequelize');
 var pwd = require('../environment/env.js');
 
 var sequelize = new Sequelize('cafepi', 'root', pwd, {
-  host: 'localhost',
+  host: process.env.JAWSDB_URL || 'localhost',
   port: 3306,
   dialect: 'mysql'
 });
