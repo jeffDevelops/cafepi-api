@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const port = process.env.PORT || 8888;
+const port = 8888 || process.env.PORT;
 const bodyParser = require('body-parser');
 
 // var graphqlHTTP = require('express-graphql');
@@ -14,7 +14,7 @@ const bodyParser = require('body-parser');
 
 const db = require('./models');
 db.sequelize.sync({
-  force: true
+  force: false
 });
 
 app.use(bodyParser.urlencoded({extended: true}));
@@ -22,7 +22,6 @@ app.use(bodyParser.json());
 
 const routes = require('./api/coffeeShopRoutes');
 app.use(routes);
-
 
 
 app.listen(port, () => {

@@ -2,7 +2,7 @@ const bodyParser = require('body-parser');
 const fs = require('fs');
 const methodOverride = require('method-override');
 
-const CoffeeShop = require('../models/index.js');
+const CoffeeShop = require('../models/index.js').CoffeeShop;
 
 function getAllCoffeeShops(req, res) {
   console.log('GET ALL HIT!');

@@ -3,7 +3,7 @@ const router = express.Router();
 
 const corsController = require('../controllers/cors');
 
-router.route('/*')
+router.route('/api/*')
   .options(corsController);
 
 module.exports = router;
