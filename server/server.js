@@ -14,7 +14,7 @@ const bodyParser = require('body-parser');
 
 const db = require('./models');
 db.sequelize.sync({
-  force: false
+  force: true
 });
 
 app.use(bodyParser.urlencoded({extended: true}));
