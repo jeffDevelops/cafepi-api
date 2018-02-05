@@ -1,5 +1,5 @@
 var Sequelize = require('sequelize');
-var pwd = process.env.PWD // require('../environment/env.js');
+var pwd = process.env.PWD; // require('../environment/env.js');
 var sequelize;
 
 // if (process.env.PWD) {
@@ -20,11 +20,11 @@ if (process.env.JAWSDB_URL) {
   });
 }
 
-sequelize = new Sequelize('cafepi', 'root', pwd, {
-  host: 'localhost',
-  port: 3306,
-  dialect: 'mysql'
-});
+// sequelize = new Sequelize('cafepi', 'root', pwd, {
+//   host: 'localhost',
+//   port: 3306,
+//   dialect: 'mysql'
+// });
 
 sequelize.authenticate().then(() => {
   console.log(pwd);
